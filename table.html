@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .table-container {
+            max-height: 300px;
+            /* Chiều cao tối đa của bảng */
+            overflow: auto;
+            /* Cho phép cuộn ngang và dọc */
+            position: relative;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            table-layout: fixed;
+            /* Đảm bảo tất cả các cột có độ rộng cố định */
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            white-space: nowrap;
+            /* Không ngắt dòng văn bản */
+        }
+
+        thead th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            /* Sticky header ở trên cùng */
+            z-index: 2;
+        }
+
+        .sticky-col {
+            position: sticky;
+            left: 0;
+            background-color: white;
+            z-index: 3;
+        }
+
+        .sticky-col:nth-child(2) {
+            left: 100px;
+            /* Chiều rộng của cột đầu tiên */
+        }
+
+        .sticky-col:nth-child(3) {
+            left: 200px;
+            /* Chiều rộng của cột đầu tiên + cột thứ hai */
+        }
+
+        tbody td {
+            min-width: 100px;
+            /* Đặt độ rộng cố định cho các cột */
+        }
+
+        tbody th,
+        tbody td {
+            overflow: hidden;
+            /* Không cho phép nội dung tràn ra khỏi ô */
+            text-overflow: ellipsis;
+            /* Hiển thị dấu ... nếu nội dung quá dài */
+        }
+
+        th[colspan="3"] {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="3" class="sticky-col">Cột 1</th>
+                    <th rowspan="3" class="sticky-col">Cột 2</th>
+                    <th rowspan="3" class="sticky-col">Cột 3</th>
+                    <th colspan="3">Header Lớn</th>
+                </tr>
+                <tr>
+                    <th>Header Nhỏ 1</th>
+                    <th>Header Nhỏ 2</th>
+                    <th>Header Nhỏ 3</th>
+                </tr>
+                <tr>
+                    <th>Header Nhỏ 1</th>
+                    <th>Header Nhỏ 2</th>
+                    <th>Header Nhỏ 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="sticky-col">Dữ liệu 1-1</td>
+                    <td class="sticky-col">Dữ liệu 1-2</td>
+                    <td class="sticky-col">Dữ liệu 1-3</td>
+                    <td>Dữ liệu 1-4</td>
+                    <td>Dữ liệu 1-5</td>
+                    <td>Dữ liệu 1-6</td>
+                </tr>
+                <tr>
+                    <td class="sticky-col">Dữ liệu 2-1</td>
+                    <td class="sticky-col">Dữ liệu 2-2</td>
+                    <td class="sticky-col">Dữ liệu 2-3</td>
+                    <td>Dữ liệu 2-4</td>
+                    <td>Dữ liệu 2-5</td>
+                    <td>Dữ liệu 2-6</td>
+                </tr>
+                <!-- Thêm nhiều dòng dữ liệu khác nếu cần -->
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
